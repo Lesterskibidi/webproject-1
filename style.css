@@ -5,79 +5,84 @@ body {
     text-align: center;
     min-height: 100vh;
 }
+
 header {
     background-color: lightgrey;
     border-radius: 0px 0px 20px 20px;
     display: flex;
-    gap: 20px;
     justify-content: center;
     align-items: center;
     height: 100px;
 }
+
 header nav a {
     text-decoration: none;
     color: black;
     padding: 10px 20px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 32px;
-    gap: 20px;
+    font-size: 24px; /* Giảm nhẹ font-size để tránh bị tràn màn hình */
     font-weight: bold;
 }
+
 .box-1 {
-    gap: 20px;
+    padding: 20px;
 }
+
 .box-1 h1 {
     font-size: 42px;
     font-weight: bold;
 }
+
 .box-2 {
-    display: block;
     width: 90%;
-    max-width: 1200px;
-    background-color: rgba(255, 255, 255, 0,2);
+    max-width: 1000px;
+    background-color: rgba(255, 255, 255, 0.5); /* Sửa thành 0.5 để dễ nhìn hơn */
     margin: 40px auto;
     padding: 30px;
-    height: auto;
     border-radius: 30px;
 }
+
 .box-2 h2 {
     text-align: center;
     padding: 15px;
     border-radius: 50px;
-    width: 60%;
+    width: fit-content; /* Để nền hồng ôm sát chữ */
+    padding-left: 50px;
+    padding-right: 50px;
     margin: 0 auto 30px auto;
-    font-size: 35px;
+    font-size: 30px;
 }
+
+/* Đây là phần quan trọng để ảnh và chữ nằm cạnh nhau */
+.content-box {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    text-align: left;
+}
+
 .box-2 img {
     width: 250px;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
     border-radius: 15px;
     height: auto;
-    flex-shrink: 0;
 }
+
 .box-2 .text-side {
     flex: 1;
 }
+
 .box-2 p {
     line-height: 1.6;
-    text-align: justify;
     font-size: 18px;
-    margin: 0 0 15px 0;
     color: #333;
-    flex-wrap: wrap;
 }
-.content-box {
-    display: flex; 
-    gap: 40px;
-    align-items: flex-start;
-    text-align: left;
-}
+
 footer {
     background-color: black;
     color: white;
     border-radius: 30px;
     width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
     padding: 10px 40px;
 }
