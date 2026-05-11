@@ -1,88 +1,146 @@
+/* Cấu hình chung */
 body {
-    background-color: lightblue;
+    background-color: #e0f2f7; /* Màu xanh nhạt dịu mắt hơn */
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
 }
 
+/* Header & Menu */
 header {
-    background-color: lightgrey;
-    border-radius: 0px 0px 20px 20px;
+    background-color: #ffffff;
+    border-radius: 0 0 25px 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 80px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+header nav {
+    display: flex;
+    gap: 15px;
 }
 
 header nav a {
     text-decoration: none;
-    color: black;
-    padding: 10px 20px;
+    color: #444;
+    padding: 8px 15px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 24px; /* Giảm nhẹ font-size để tránh bị tràn màn hình */
+    font-size: 20px;
     font-weight: bold;
+    transition: 0.3s;
 }
 
+header nav a:hover {
+    color: #ffb6c1; /* Đổi màu khi di chuột vào */
+}
+
+/* Phần giới thiệu (Box 1) */
 .box-1 {
-    padding: 20px;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .box-1 h1 {
-    font-size: 42px;
-    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
 }
 
+.content p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Box nội dung chính (Box 2) */
 .box-2 {
     width: 90%;
-    max-width: 1000px;
-    background-color: rgba(255, 255, 255, 0.5); /* Sửa thành 0.5 để dễ nhìn hơn */
-    margin: 40px auto;
+    max-width: 900px;
+    background-color: white;
+    margin: 20px auto 50px auto;
     padding: 30px;
     border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .box-2 h2 {
-    text-align: center;
-    padding: 15px;
+    display: inline-block; /* Để background pink ôm vừa chữ */
+    padding: 10px 40px;
     border-radius: 50px;
-    width: fit-content; /* Để nền hồng ôm sát chữ */
-    padding-left: 50px;
-    padding-right: 50px;
-    margin: 0 auto 30px auto;
-    font-size: 30px;
+    font-size: 28px;
+    margin-bottom: 30px;
 }
 
-/* Đây là phần quan trọng để ảnh và chữ nằm cạnh nhau */
+/* Bố cục Flexbox xử lý vụ "bể" ảnh/chữ */
 .content-box {
     display: flex;
     gap: 30px;
-    align-items: center;
+    align-items: flex-start; /* Căn đỉnh để chữ không bị nhảy giữa */
     text-align: left;
 }
 
 .box-2 img {
-    width: 250px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
-    border-radius: 15px;
+    width: 300px; /* Tăng kích thước ảnh một chút */
     height: auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex-shrink: 0; /* Giữ ảnh không bị co lại */
 }
 
 .box-2 .text-side {
     flex: 1;
 }
 
-.box-2 p {
-    line-height: 1.6;
+.box-2 .text-side p {
     font-size: 18px;
-    color: #333;
+    margin-top: 0;
 }
 
+/* Footer */
 footer {
-    background-color: black;
+    background-color: #222;
     color: white;
-    border-radius: 30px;
+    border-radius: 50px;
     width: fit-content;
-    margin: 20px auto;
-    padding: 10px 40px;
+    margin: 40px auto;
+    padding: 12px 50px;
+    font-size: 14px;
+}
+
+/* --- XỬ LÝ CHO ĐIỆN THOẠI (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    header nav a {
+        font-size: 16px;
+        padding: 5px 8px;
+    }
+
+    .box-1 h1 {
+        font-size: 2rem;
+    }
+
+    /* Chuyển từ ngang sang dọc khi màn hình hẹp */
+    .content-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .box-2 img {
+        width: 100%; /* Ảnh chiếm hết chiều ngang điện thoại */
+        max-width: 350px;
+    }
+
+    .box-2 h2 {
+        width: 80%;
+        font-size: 22px;
+    }
 }
